@@ -1,7 +1,8 @@
-import { greetUser } from '$utils/greet';
-
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  const name = 'John Doe';
-  greetUser(name);
-});
+/* eslint-disable prefer-destructuring */
+import { spaForm } from '$utils/spanatural';
+try {
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    spaForm();
+  });
+} catch (error) {}
