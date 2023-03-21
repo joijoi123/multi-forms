@@ -34,6 +34,11 @@ export const spaForm = () => {
     (btnPrev as HTMLElement).style.display = 'none';
     const loading = getLoadingElement();
     loading.style.width = `${(currentStep * 100) / totalStep}%`;
+    showWarning(false);
+  };
+  const showWarning = (isFlag: boolean) => {
+    const warning = getWarningEle();
+    isFlag ? (warning.style.display = 'flex') : (warning.style.display = 'none');
   };
   const fadeIn = (ele: any) => {
     intervalID = setInterval(() => {
@@ -48,7 +53,7 @@ export const spaForm = () => {
   };
   const requiredFields = () => {
     const query =
-      '[sayu-parent-form=' +
+      '[sayu-form-wrapper=' +
       "'" +
       currentStep +
       "'" +
@@ -98,10 +103,10 @@ export const spaForm = () => {
 
     if (!isValid) {
       // show warning here
-      const warning = getWarningEle();
-      warning && (warning.style.display = 'flex');
+      showWarning(true);
       return;
     }
+    showWarning(false);
     const prevForm = getFormStep(currentStep);
     // eslint-disable-next-line no-plusplus
     currentStep++;
@@ -124,6 +129,7 @@ export const spaForm = () => {
   };
 
   const clickPrev = () => {
+    showWarning(false);
     const totalStep = getTotalStep();
     const prevForm = getFormStep(currentStep);
     // eslint-disable-next-line no-plusplus
