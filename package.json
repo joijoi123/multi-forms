@@ -1,39 +1,15 @@
 {
-  "name": "@finsweet/developer-starter",
-  "version": "0.0.0",
-  "description": "Developer starter template for Finsweet projects.",
-  "homepage": "https://github.com/finsweet/developer-starter#readme",
-  "license": "ISC",
-  "keywords": [],
   "author": {
     "name": "Finsweet",
     "url": "https://finsweet.com/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/finsweet/developer-starter.git"
-  },
   "bugs": {
     "url": "https://github.com/finsweet/developer-starter/issues"
   },
-  "type": "module",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development node ./bin/build.js",
-    "build": "cross-env NODE_ENV=production node ./bin/build.js",
-    "lint": "eslint --ignore-path .gitignore ./src && prettier --check ./src",
-    "lint:fix": "eslint --ignore-path .gitignore ./src --fix",
-    "check": "tsc --noEmit",
-    "format": "prettier --write ./src",
-    "test": "playwright test",
-    "test:headed": "playwright test --headed",
-    "release": "changeset publish",
-    "update": "pnpm update -i -L -r"
+  "dependencies": {
+    "@finsweet/ts-utils": "^0.39.0"
   },
+  "description": "Developer starter template for Finsweet projects.",
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.14",
     "@changesets/cli": "^2.26.0",
@@ -51,7 +27,31 @@
     "prettier": "^2.8.4",
     "typescript": "^4.9.5"
   },
-  "dependencies": {
-    "@finsweet/ts-utils": "^0.39.0"
-  }
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/finsweet/developer-starter#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "name": "@finsweet/developer-starter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finsweet/developer-starter.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production node ./bin/build.js",
+    "check": "tsc --noEmit",
+    "dev": "cross-env NODE_ENV=development node ./bin/build.js",
+    "format": "prettier --write ./src",
+    "lint": "eslint --ignore-path .gitignore ./src && prettier --check ./src",
+    "lint:fix": "eslint --ignore-path .gitignore ./src --fix",
+    "release": "changeset publish",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "update": "pnpm update -i -L -r"
+  },
+  "type": "module",
+  "version": "1.0.0"
 }
